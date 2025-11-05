@@ -1,0 +1,29 @@
+<nav class="navbar-container">
+  
+  <div class="nav-links">
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="active-link">Home</a>
+      </li>
+      
+      <li>
+        <a routerLink="/catalogo" routerLinkActive="active-link">Catalogo</a>
+      </li>
+
+      <li>
+        <a routerLink="/chat" routerLinkActive="active-link">Chat Bot</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nav-search">
+    <input 
+      type="text" 
+      placeholder="Cerca prodotti..." 
+      #searchInput
+      (keyup.enter)="onSearch(searchInput.value)">
+      
+    <button (click)="onSearch(searchInput.value)">Cerca</button>
+  </div>
+
+</nav>
