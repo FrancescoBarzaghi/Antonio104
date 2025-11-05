@@ -1,0 +1,36 @@
+<div class="carrello-container">
+  <h2>Il Tuo Carrello</h2>
+
+  <div *ngIf="(items$ | async) as items; else carrelloVuoto">
+    
+    <div *ngIf="items.length > 0; else carrelloVuoto" class="carrello-list">
+
+      <div class="carrello-item" *ngFor="let item of items; let i = index">
+      
+      <img [src]="item.imageUrl" [alt]="item.nome" class="item-image">
+      <div class="item-details">
+        <h4>{{ item.nome }}</h4>
+        <p class="prezzo">{{ item.prezzo }}</p>
+      </div>
+      
+      <button class="remove-btn" (click)="onRemoveFromCart(i)">Rimuovi</button>
+      
+    </div>
+
+      <div class="carrello-total">
+        <h3>Totale: €XX.XX</h3>
+        <button class="checkout-btn">Procedi all'acquisto</button>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <ng-template #carrelloVuoto>
+    <div class="empty-cart-message">
+      <p>Il tuo carrello è vuoto.</p>
+      <a routerLink="/catalogo" class="go-to-shop-btn">Torna al catalogo</a>
+    </div>
+  </ng-template>
+
+</div>

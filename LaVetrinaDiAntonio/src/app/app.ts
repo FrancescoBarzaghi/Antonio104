@@ -1,16 +1,20 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router'; // <-- DEVE ESSERE QUI
 import { BarraComponent } from './barra/barra';
-import { InfoPanel } from './info-panel/info-panel';
-import { EvidenzaComponent } from './evidenza/evidenza';
 import { FooterComponent } from './footer/footer';
+// NON importare più InfoPanel o Evidenza qui
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,BarraComponent,InfoPanel,EvidenzaComponent,FooterComponent],
+  standalone: true,
+  imports: [
+    RouterOutlet, 
+    BarraComponent,
+    FooterComponent 
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('LaVetrinaDiAntonio');
+  title = signal('LaVetrinaDiAntonio');
 }

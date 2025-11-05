@@ -1,0 +1,32 @@
+<div class="catalogo-container">
+  <h2>Il Nostro Catalogo</h2>
+  <p>Scopri la nostra selezione completa di liquori e distillati.</p>
+
+  <div class="catalogo-grid">
+    
+    <article class="catalogo-card" *ngFor="let prodotto of prodottiCatalogo">
+      
+      <div class="card-image">
+        <img [src]="prodotto.imageUrl" [alt]="prodotto.nome">
+      </div>
+      
+      <div class="card-content">
+        <h5>{{ prodotto.nome }}</h5>
+    <p class="prezzo">{{ prodotto.prezzo }}</p>
+    
+    <button *ngIf="!prodotto.isAdded" 
+      class="add-to-cart-btn" 
+      (click)="onAddToCart(prodotto)">
+      Aggiungi
+    </button>
+    
+    <button *ngIf="prodotto.isAdded" 
+      class="add-to-cart-btn added" 
+      disabled>
+      Aggiunto! ✓
+    </button>
+        
+      </div>
+    </article> 
+    </div> 
+  </div> 

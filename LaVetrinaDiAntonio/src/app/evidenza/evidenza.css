@@ -38,21 +38,18 @@
 }
 
 .vedi-tutto-btn {
- margin-left: auto; 
-  
-  /* NUOVO: Questo lo tiene sopra il titolo (sicurezza) */
-  z-index: 2;
-
-  /* ... (gli altri stili del bottone restano invariati) ... */
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  /* ... (tutti i tuoi stili vecchi: width, height, background, ecc.) ... */
   width: 100px;
   height: 40px;
-  font-size: 1.5rem;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  /* ... ecc ... */
+
+  /* NUOVO: Aggiungi queste righe per centrare la freccia nel link */
+  text-decoration: none;  /* Rimuove la sottolineatura del link */
+  display: flex;           /* Usa flex per centrare */
+  align-items: center;     /* Centra verticalmente */
+  justify-content: center; /* Centra orizzontalmente */
 }
 
 .vedi-tutto-btn:hover {

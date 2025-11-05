@@ -1,0 +1,127 @@
+/* 1. Contenitore principale (stile fluttuante) */
+.catalogo-container {
+  margin: 40px 10px;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+.catalogo-container h2 {
+  text-align: center;
+  color: #20c997; /* Stesso verde di "In Evidenza" */
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.catalogo-container p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* 2. La Griglia da 5 Colonne */
+.catalogo-grid {
+  display: grid;
+  /* Crea 5 colonne di larghezza uguale */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem; /* Spazio ridotto per card più piccole */
+}
+
+/* 3. Stile della Card (Più piccola) */
+.catalogo-card {
+  background-color: #ffffff;
+  border-radius: 6px; /* Bordi meno arrotondati */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.catalogo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Immagine della card (più bassa) */
+.card-image img {
+  width: 100%;
+  height: 350px;; /* Molto più bassa dei 250px di "evidenza" */
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenuto della card (più compatto) */
+.card-content {
+  padding: 0.75rem;
+}
+
+.card-content h5 {
+  margin: 0 0 0.5rem 0; /* Spazio sotto il nome */
+  font-size: 0.95rem; /* Font più piccolo */
+  color: #333;
+}
+
+.card-content .prezzo {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff; /* Blu per il prezzo */
+}
+
+
+/*
+=========================================
+Stili Responsive (FONDAMENTALE!)
+5 colonne non entrano su schermi piccoli
+=========================================
+*/
+
+/* Tablet (es. iPad) - 3 colonne */
+@media (max-width: 992px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile (es. iPhone) - 2 colonne */
+@media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .catalogo-container {
+    padding: 1rem;
+    margin: 20px 10px;
+  }
+}
+
+/* Schermi molto piccoli - 1 colonna */
+@media (max-width: 480px) {
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* File: catalogo.component.css */
+
+.add-to-cart-btn {
+  width: 100%; /* Occupa tutta la larghezza della card */
+  padding: 8px;
+  margin-top: 0.75rem; /* Spazio dal prezzo */
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Blu (come il pulsante Accedi) */
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3; /* Blu più scuro */
+}
+.add-to-cart-btn.added {
+  background-color: #28a745; /* Verde successo */
+  cursor: not-allowed; /* Cursore "non cliccabile" */
+}
