@@ -1,29 +1,27 @@
 <nav class="navbar-container">
   
-  <div class="nav-links">
+  <button class="hamburger-btn" (click)="toggleMenu()" [class.menu-open]="isMenuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" [class.menu-open]="isMenuOpen">
     <ul>
       <li>
-        <a routerLink="/home" routerLinkActive="active-link">Home</a>
+        <a routerLink="/home" routerLinkActive="active-link" (click)="closeMenuOnNavigation()">Home</a>
       </li>
-      
       <li>
-        <a routerLink="/catalogo" routerLinkActive="active-link">Catalogo</a>
+        <a routerLink="/catalogo" routerLinkActive="active-link" (click)="closeMenuOnNavigation()">Catalogo</a>
       </li>
-
       <li>
-        <a routerLink="/chat" routerLinkActive="active-link">Chat Bot</a>
+        <a routerLink="/chat" routerLinkActive="active-link" (click)="closeMenuOnNavigation()">Chat Bot</a>
       </li>
     </ul>
   </div>
 
-  <div class="nav-search">
-    <input 
-      type="text" 
-      placeholder="Cerca prodotti..." 
-      #searchInput
-      (keyup.enter)="onSearch(searchInput.value)">
-      
-    <button (click)="onSearch(searchInput.value)">Cerca</button>
+  <div class="nav-login">
+    <button class="login-btn">Accedi</button>
   </div>
 
 </nav>

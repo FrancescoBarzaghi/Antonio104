@@ -11,11 +11,16 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: #ffffff;
-  
+
+  background-color: rgba(255, 255, 255, 0.65); /* Bianco con 85% di opacità */
+
+  /* Per un effetto "vetro satinato" (opzionale ma consigliato): */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   /* --- MODIFICHE RICHIESTE --- */
 
   /* 1. Staccata di 10px dall'alto e dai lati */
-  margin: 10px 10px 0 10px;
+  margin: 25px 10px 0 10px;
 
   /* 2. Bordi tondi */
   border-radius: 10px; /* Puoi regolare questo valore (es. 8px, 12px) */
@@ -59,37 +64,219 @@
   background-color: #e6f2ff;
 }
 
-.nav-search {
+/*
+=========================================
+NUOVO: Stili per il pulsante Accedi
+=========================================
+*/
+.nav-login {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
-.nav-search input {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  
-  /* --- MODIFICHE RICHIESTE --- */
-
-  /* 4. Barra di ricerca più lunga */
-  min-width: 280px; /* Aumentato per renderla visibilmente più lunga */
-  
-  /* --- FINE MODIFICHE --- */
-}
-
-.nav-search button {
-  padding: 0.6rem 1rem;
+.login-btn {
+  padding: 0.6rem 1.2rem; /* Padding (verticale, orizzontale) */
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  background-color:  rgba(255, 255, 255, 0.65); /* Blu primario del tema */
+  color: rgb(11, 119, 114);
   font-weight: 500;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.nav-search button:hover {
-  background-color: #0056b3;
+.login-btn:hover {
+  background-color: #0056b3; /* Blu più scuro al passaggio del mouse */
+}
+ /*
+=========================================
+NUOVO: Stili per il Bottone Hamburger
+=========================================
+*/
+
+.hamburger-btn {
+  display: none; /* Nascosto di default su desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px; /* Larghezza icona */
+  height: 24px; /* Altezza icona */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Sta sopra tutto */
+  box-sizing: border-box;
+}
+
+.hamburger-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: #333; /* Colore delle linee */
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animazione Hamburger -> X (quando ha la classe .menu-open) */
+.hamburger-btn.menu-open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger-btn.menu-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.menu-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+/*
+=========================================
+NUOVO: Media Query per la Responsività
+(Applica questi stili solo sotto i 768px)
+=========================================
+*/
+
+@media (max-width: 768px) {
+
+  .navbar-container {
+    /* Mette gli elementi su più righe se non c'è spazio */
+    flex-wrap: wrap; 
+    margin: 10px; /* Margini ridotti per mobile */
+    gap: 1rem; /* Spazio tra le righe (es. tra ricerca e menu) */
+    position: relative; /* Necessario per il menu a tendina */
+  }
+
+  /* 1. Mostra il bottone Hamburger */
+  .hamburger-btn {
+    display: flex;
+    order: 1; /* Primo elemento a sinistra */
+  }
+
+  /* 2. Riposiziona la barra di ricerca */
+  .nav-search {
+    order: 2; /* Secondo elemento */
+    flex-grow: 1; /* Fa sì che la ricerca riempia lo spazio rimanente */
+    margin-left: 1rem; /* Spazio dall'hamburger */
+    min-width: 150px; /* Riduci la larghezza minima */
+  }
+  
+  .nav-search input {
+     width: 100%; /* Fai espandere l'input */
+     min-width: 0;
+  }
+
+  /* 3. Nascondi i link (stato di default su mobile) */
+  .nav-links {
+    order: 3; /* Terzo elemento (va a capo) */
+    width: 100%; /* Occupa tutta la larghezza */
+    
+    /* Logica per nascondere/mostrare */
+    max-height: 0; /* Nasconde il menu (altezza 0) */
+    overflow: hidden; /* Nasconde il contenuto che sborda */
+    transition: max-height 0.4s ease-out;
+  }
+
+  /* 4. Stile della lista dei link su mobile */
+  .nav-links ul {
+    flex-direction: column; /* Link in verticale */
+    width: 100%;
+    padding: 0;
+    gap: 0;
+  }
+
+  .nav-links a {
+    display: block; /* Occupa tutto lo spazio */
+    width: 100%;
+    padding: 1rem 0; /* Più padding verticale, meno orizzontale */
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 0;
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active-link {
+     background-color: #e6f2ff; /* Mantiene lo stile attivo/hover */
+  }
+
+  /* 5. Stato "Aperto" del menu (quando ha la classe .menu-open) */
+  .nav-links.menu-open {
+    max-height: 300px; /* Mostra il menu (imposta un'altezza max) */
+    /* Aggiunge uno spazio sopra i link quando il menu è aperto */
+    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
+  }
+}
+/*
+=========================================
+NUOVO: Stili per Logo e Layout Centrale
+=========================================
+*/
+
+
+/* * Fai in modo che il contenitore dei link (.nav-links)
+ * occupi tutto lo spazio centrale disponibile su desktop.
+*/
+.nav-links {
+  flex-grow: 1; /* Questa è la chiave! */
+}
+
+/*
+ * Centra la lista <ul> (che contiene i link) 
+ * all'interno del contenitore .nav-links.
+*/
+.nav-links ul {
+  justify-content: center; /* CENTRA I LINK */
+  width: 100%;
+}
+
+
+/*
+=========================================
+NUOVO: Modifiche Responsive
+=========================================
+*/
+
+@media (max-width: 768px) {
+  
+  /* Nascondi il logo su mobile per semplicità. 
+     Il bottone hamburger è già lì. */
+  .nav-logo {
+    display: none;
+  }
+
+  /* * Su mobile, i link diventano verticali. 
+   * Rimuoviamo il 'flex-grow' e il 'justify-content' 
+   * (il reset avviene perché questi stili non sono in media query)
+  */
+  .nav-links {
+    flex-grow: 0; /* Ritorna al comportamento normale */
+  }
+
+  /* * Rimuove la centratura della lista su mobile 
+   * (visto che i link sono verticali)
+  */
+  .nav-links ul {
+    justify-content: flex-start; /* Resetta la centratura */
+  }
+
+  /* * Fai sì che l'hamburger sia a sinistra 
+   * e la ricerca occupi lo spazio rimanente.
+  */
+  .hamburger-btn {
+    order: 1;
+  }
+  .nav-search {
+    order: 2;
+    flex-grow: 1; /* Fa espandere la ricerca */
+    margin-left: 1rem;
+  }
+  .nav-links {
+    order: 3;
+  }
 }

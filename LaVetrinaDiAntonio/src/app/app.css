@@ -1,0 +1,31 @@
+/* Stili per il Logo sopra la Navbar */
+.header-logo-container {
+  display: flex;
+  justify-content: center; /* Centra l'immagine orizzontalmente */
+  align-items: center;     /* Centra l'immagine verticalmente (se il contenitore ha altezza) */
+  padding: 20px 0 10px 0; /* Spazio sopra e sotto il logo */
+  width: 100%;             /* Occupa tutta la larghezza */
+  
+  /* Se vuoi uno sfondo leggermente diverso per questa sezione */
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  /* backdrop-filter: blur(5px); */
+  /* -webkit-backdrop-filter: blur(5px); */
+}
+
+.header-logo-container img {
+  height: 90px;   /* Imposta l'altezza fissa */
+  width: 150px;   /* Imposta la larghezza fissa */
+  display: block;
+
+  /* Rimuovi max-height e max-width se presenti */
+  /* max-height: 100px; */ 
+  /* max-width: 300px; */
+}
+
+/* Modifica anche per la versione mobile */
+@media (max-width: 768px) {
+  .header-logo-container img {
+    height: 90px;   /* Mantiene l'altezza (o riducila se 90px è troppo) */
+    width: 150px;   /* Mantiene la larghezza */
+  }
+}

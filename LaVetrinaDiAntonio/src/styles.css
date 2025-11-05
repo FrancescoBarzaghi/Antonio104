@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+/* Stili globali per l'intera applicazione */
+
+body {
+  /* Imposta l'immagine come sfondo */
+  background-image: url('https://lh3.googleusercontent.com/rd-gg-dl/ABS2GSmcKvz99nFPVnMl9_sUhyG98b0TBfdY8uG_GV55DpbVjxBRK6ni0l_DuSX5GRV6WJYkucDJQrgP6__t1HJ3-HTWnUrsKT1O7NH5ixqwvgYFAUTrF5omv2IaMBVvwrnQQ36LMUxc7Skqn7SGciAbEyvcqQxIrEhkrrsHJoF1RE813x_8TkMeiykrn3nbgcq62-iqb02iXrgtKepTFHF_wUIVCr3aPwQhrutqo6_z0AR1isd25LbpYki6kcJEWdz6URLsfDr8EE6004O4ZNfQrLT7DN5CR6kB7RozfiRMvs_5G4cwhYrvU2ssgm7c1yKsDlYnpbOjVUMKZ_z-G28l2eN-eyKOXzrCAuKQRImatZI_qscpF_3bGAlqIjLLuiTfDRC-6usDEYPEMPoC37qlQcUrinTZylc32oQUaTaYTTFwHYHnvvu-bYozfR4AxeNXgcnOklW4PxRT_9xecavHnyylvvImayWJZfDlwiKbox8NZQIZ8NUlfGL56zT883p4ptEcUhxuDUJcwJQQObPs6DZuhgV2Q5DHNCs4wnq5ZBvG2TGDQz3MxCeuEVNAlctui1-tSqyqdy0RYzo6Yj0VGHTNICPXp_q0q4bO8CVVDZ6h3wMcg02QpTrfLzJ1JhvlwHO6X2HP1LMfkgiNET_Ju_Ko1n2bU-rV843nW0OQXz5wm_FwHfdQ5bPI9rI5TMvGCSIcm8k0lL9lhVJR5MpDTJvFfLZeIHJGoSw-kQDgLpIr_pW5aPD4hcWGe_1Ik9VYR6aObnFH1nTMZPvQtyvHprltOY4f1_maAH6Sc3IVarRoSCztSujRcm27nY1TUZZJKywsaoBehqncn015JA1EXxsbQDgMMl1kwiZ3TGn2IxAjTupdd0Hd_7fNTEimfyYSFNDXQFLRMf0u6_UL0pKJkNLzRDwPWRZiUkVdbrzNvUMdEdLnNoomooVLbZVFNDvAV3DXYYeKaummDpH9_LxD4NjuwQygPoVuWVihSXVEg8TZUDKQnB6J3i51-Yd6rTvfCCMkZ7bwhM-ZycP2tWOg0ihyVg4oBLsd3YU4LbYUcjfwp9zr1K7U9pEJ8tlHVEVRzVePdoa6b6tjQE-1Urb51bXFEZ29ncQp1y7CEdvNYLxFZqHYasyLpLNvJyPbfnj-1Q0rbq-a38XOQXlT5YJCrQFLDh6vFpc=s1024-rj');
+  
+  /* Non ripetere l'immagine */
+  background-repeat: no-repeat;
+  
+  /* Copri l'intera area del body, mantenendo le proporzioni */
+  background-size: cover;
+  
+  /* Fissa l'immagine in modo che non scorra con il contenuto */
+  background-attachment: fixed;
+  
+  /* Posiziona l'immagine al centro */
+  background-position: center center;
+
+  /* Colore di fallback nel caso l'immagine non si carichi */
+  background-color: #333; /* Un colore scuro che si abbini all'immagine */
+
+  /* Rimuovi i margini predefiniti del body */
+  margin: 0;
+  padding: 0;
+
+  /* Assicura che l'altezza del body sia almeno quella della viewport */
+  min-height: 100vh; 
+}
+
+/* Potrebbe essere utile resettare anche html per la compatibilità con alcuni browser */
+html {
+  height: 100%;
+}
+
+/* Se hai un elemento <main> o un wrapper per il contenuto, 
+   potresti volerlo rendere trasparente se ha un background di default */
+/* main {
+  background-color: transparent;
+} */

@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.footer-container {
+  /* 1. Stile "Fluttuante" coerente */
+  margin: 40px 0px 0px 0px; /* Staccato (10px in basso) */
+  padding: 2rem;
+  
+  /* 2. Trasparenza 65% e Sfocatura */
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* 3. Colore del testo (scuro per leggibilità su sfondo chiaro) */
+  color: #333;
+}
+
+/* 4. Layout a Colonne (usando Flexbox) */
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Distribuisce le colonne */
+  flex-wrap: wrap; /* Le manda a capo su mobile */
+  gap: 1.5rem; /* Spazio tra le colonne */
+  padding-bottom: 1.5rem; /* Spazio prima della riga copyright */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Linea di separazione */
+}
+
+.footer-section {
+  flex: 1; /* Fa sì che le colonne crescano in modo uniforme */
+  min-width: 200px; /* Larghezza minima prima di andare a capo */
+}
+
+.footer-section h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.footer-section p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 5. Stile dei Link */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.footer-section ul a:hover {
+  color: #007bff; /* Stesso blu del pulsante Accedi */
+}
+
+/* 6. Riga del Copyright */
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* 7. Responsività (non necessaria grazie a flex-wrap, 
+   ma potremmo voler centrare su mobile) */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column; /* Impila le colonne */
+    text-align: center;
+  }
+}

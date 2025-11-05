@@ -1,27 +1,23 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-barra', // <-- Questo è il tag HTML
-  templateUrl: './barra.html', // <-- Nome file
-  styleUrls: ['./barra.css'] // <-- Nome file
+  selector: 'app-barra',
+  templateUrl: './barra.html',
+  styleUrls: ['./barra.css']
 })
-export class BarraComponent { // <-- Nome della classe
+export class BarraComponent {
 
-  constructor(private router: Router) { }
+  public isMenuOpen: boolean = false;
 
-  /**
-   * Chiamato quando l'utente preme Invio o fa clic sul pulsante Cerca.
-   * @param query La stringa inserita dall'utente.
-   */
-  onSearch(query: string): void {
-    if (!query || query.trim() === '') {
-      return;
+  constructor() { } // 
+ 
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenuOnNavigation(): void {
+    if (this.isMenuOpen) {
+      this.isMenuOpen = false;
     }
-
-    console.log('Ricerca avviata per:', query);
-    
-    // Esempio: Naviga a una pagina di risultati di ricerca
-    this.router.navigate(['/search'], { queryParams: { q: query } });
   }
 }

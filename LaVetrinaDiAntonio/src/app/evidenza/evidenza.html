@@ -1,0 +1,24 @@
+<section class="evidenza-container">
+  
+  <header class="evidenza-header">
+    <h2>In Evidenza</h2>
+    <button class="vedi-tutto-btn" aria-label="Vedi tutto">
+      &rarr; </button>
+  </header>
+
+  <div class="evidenza-grid">
+    
+    <article class="card-evidenza" *ngFor="let item of itemsInEvidenza">
+      
+      <div class="card-image">
+        <img [src]="item.imageUrl" [alt]="item.nome">
+      </div>
+      
+      <div class="card-content">
+        <h4>{{ item.nome }}</h4>
+      </div>
+
+    </article>
+
+  </div>
+</section>

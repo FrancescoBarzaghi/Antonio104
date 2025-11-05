@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* 1. Contenitore principale (simile a info-panel) */
+.evidenza-container {
+  /* Spaziatura coerente con gli altri componenti */
+  margin: 40px 10px; 
+  padding: 1.5rem; /* Spazio interno */
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+/* 2. Intestazione (Titolo e bottone '->') */
+.evidenza-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  /* NUOVO: Necessario per la centratura assoluta del titolo */
+  position: relative; 
+}
+
+.evidenza-header h2 {
+  /* NUOVO: Colore Verdeacqua */
+  color: #101d19; /* Puoi cambiare questo colore se preferisci */
+  font-weight: 600; /* Un po' più di spessore */
+  
+  /* NUOVO: Logica per centrare il titolo */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0; /* Resetta i margini di default */
+}
+
+.vedi-tutto-btn {
+ margin-left: auto; 
+  
+  /* NUOVO: Questo lo tiene sopra il titolo (sicurezza) */
+  z-index: 2;
+
+  /* ... (gli altri stili del bottone restano invariati) ... */
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.vedi-tutto-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* 3. La griglia responsive (Desktop = 3 colonne) */
+.evidenza-grid {
+  display: grid;
+  /* Crea 3 colonne di larghezza uguale (1fr = 1 frazione) */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Spazio tra le card */
+}
+
+/* 4. Stile della singola card (riquadro) */
+.card-evidenza {
+  background-color: #ffffff; /* Sfondo bianco solido per la card */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Per arrotondare i bordi dell'immagine */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-evidenza:hover {
+  transform: translateY(-5px); /* Leggero effetto "hover" */
+}
+
+.card-image img {
+  width: 100%;
+  height: 550px; /* Esempio di nuova altezza */
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: center; /* Centra il nome */
+}
+
+.card-content h4 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+
+/*
+=========================================
+Stili Responsive (per Tablet e Mobile)
+=========================================
+*/
+
+/* Tablet: 2 colonne */
+@media (max-width: 992px) {
+  .evidenza-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 colonna */
+@media (max-width: 600px) {
+  .evidenza-grid {
+    grid-template-columns: 1fr; /* Una sola colonna */
+  }
+
+  .evidenza-container {
+    margin: 20px 10px; /* Margine ridotto su mobile */
+  }
+}
